@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{872CBF32-0440-49F7-B76D-DC95D9878FD4}</ProjectGuid>
+    <ProjectGuid>{D65B35EF-5205-4BFF-B65A-4CB226135955}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestAmapAPI</RootNamespace>
-    <AssemblyName>TestAmapAPI</AssemblyName>
+    <RootNamespace>MapWeatherData</RootNamespace>
+    <AssemblyName>MapWeatherData</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,9 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SHUPV.Database, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\SHUPV.Database.dll</HintPath>
+    <Reference Include="SHUPV.Database">
+      <HintPath>lib\SHUPV.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="SHUPV.Database.Connection">
+      <HintPath>lib\SHUPV.Database.Connection.dll</HintPath>
+    </Reference>
+    <Reference Include="SHUPV.Database.Core">
+      <HintPath>lib\SHUPV.Database.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,16 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MapFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MapFrom.Designer.cs">
+      <DependentUpon>MapFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="SelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectForm.Designer.cs">
+      <DependentUpon>SelectForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MapFrom.resx">
+      <DependentUpon>MapFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
