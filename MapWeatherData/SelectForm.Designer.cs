@@ -154,6 +154,10 @@
 			this.Controls.Add(this.btnSendArgu);
 			this.Controls.Add(this.cbxSelectTable);
 			this.Controls.Add(this.cbxSelectPart);
+			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(312, 297);
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(312, 297);
 			this.Name = "SelectForm";
 			this.ShowIcon = false;
 			this.Text = "选择相关数据项";
