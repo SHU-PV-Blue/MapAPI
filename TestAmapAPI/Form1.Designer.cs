@@ -1,6 +1,6 @@
 ﻿namespace TestAmapAPI
 {
-	partial class Form1
+	partial class fmMapFrom
 	{
 		/// <summary>
 		/// 必需的设计器变量。
@@ -34,6 +34,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.btnSendCoord = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -43,7 +44,7 @@
 			this.webBrowser1.Location = new System.Drawing.Point(3, 17);
 			this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
 			this.webBrowser1.Name = "webBrowser1";
-			this.webBrowser1.Size = new System.Drawing.Size(678, 363);
+			this.webBrowser1.Size = new System.Drawing.Size(955, 499);
 			this.webBrowser1.TabIndex = 0;
 			// 
 			// groupBox1
@@ -54,13 +55,14 @@
 			this.groupBox1.Controls.Add(this.webBrowser1);
 			this.groupBox1.Location = new System.Drawing.Point(12, 62);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(684, 383);
+			this.groupBox1.Size = new System.Drawing.Size(961, 519);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "请在此拾取坐标";
 			// 
 			// label2
 			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.label2.Location = new System.Drawing.Point(397, 21);
@@ -71,6 +73,7 @@
 			// 
 			// label1
 			// 
+			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
 			this.label1.Location = new System.Drawing.Point(70, 21);
@@ -81,6 +84,7 @@
 			// 
 			// textBox2
 			// 
+			this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.textBox2.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold);
 			this.textBox2.Location = new System.Drawing.Point(471, 13);
 			this.textBox2.Multiline = true;
@@ -90,6 +94,7 @@
 			// 
 			// textBox1
 			// 
+			this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.textBox1.Font = new System.Drawing.Font("宋体", 20.25F, System.Drawing.FontStyle.Bold);
 			this.textBox1.Location = new System.Drawing.Point(144, 13);
 			this.textBox1.Multiline = true;
@@ -97,17 +102,30 @@
 			this.textBox1.Size = new System.Drawing.Size(200, 43);
 			this.textBox1.TabIndex = 6;
 			// 
-			// Form1
+			// btnSendCoord
+			// 
+			this.btnSendCoord.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnSendCoord.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+			this.btnSendCoord.Location = new System.Drawing.Point(703, 13);
+			this.btnSendCoord.Name = "btnSendCoord";
+			this.btnSendCoord.Size = new System.Drawing.Size(125, 43);
+			this.btnSendCoord.TabIndex = 10;
+			this.btnSendCoord.Text = "点击查询";
+			this.btnSendCoord.UseVisualStyleBackColor = true;
+			this.btnSendCoord.Click += new System.EventHandler(this.btnSendCoord_Click);
+			// 
+			// fmMapFrom
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(708, 460);
+			this.ClientSize = new System.Drawing.Size(985, 596);
+			this.Controls.Add(this.btnSendCoord);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.groupBox1);
-			this.Name = "Form1";
+			this.Name = "fmMapFrom";
 			this.Text = "高德地图坐标拾取演示";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.groupBox1.ResumeLayout(false);
@@ -124,6 +142,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Button btnSendCoord;
 	}
 }
 

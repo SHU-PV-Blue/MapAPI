@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+    <title>鼠标拾取地图坐标</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css"/>
+    <script type="text/javascript"
+            src="http://webapi.amap.com/maps?v=1.3&key=1e7f3612674bdb099a7cd8032d967e79"></script>
+    <style type="text/css">
+        #tip {
+            height: 70px;
+            background-color: #fff;
+            padding-left: 10px;
+            padding-right: 10px;
+            position: absolute;
+            font-size: 12px;
+            right: 10px;
+            bottom: 30px;
+            border-radius: 3px;
+            line-height: 30px;
+            border: 1px solid #ccc;
+        }
+
+        #tip input {
+            border: 1px solid #ddd;
+            height: 23px;
+            border-radius: 3px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div id="mapContainer"></div>
+<div id="tip">
+    <b>鼠标左键在地图上单击获取坐标</b>
+    <br>
+
+    <div>X：<input type="text" id="lngX" name="lngX" value=""/>&nbsp;Y：<input type="text" id="latY" name="latY"
+                                                                             value=""/></div>
+</div>
+<script type="text/javascript">
+    var map;
+    //初始化地图对象，加载地图
+    map = new AMap.Map("mapContainer", {
+        resizeEnable: true
+    });
+
+    //为地图注册click事件获取鼠标点击出的经纬度坐标
+    var clickEventListener = map.on( 'click', function(e) {
+        document.getElementById("lngX").value = e.lnglat.getLng();
+        document.getElementById("latY").value = e.lnglat.getLat();
+        window.external.SendLocation(e.lnglat.getLng(), e.lnglat.getLat());
+    });
+</script>
+</body>
+</html>
