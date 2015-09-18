@@ -16,7 +16,7 @@ namespace TestAmapAPI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new fmMapFrom());
+			Application.Run(new Form1());
 		}
 	}
 }
