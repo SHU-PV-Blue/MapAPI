@@ -145,4 +145,3 @@
 		private System.Windows.Forms.Button btnSendCoord;
 	}
 }
-

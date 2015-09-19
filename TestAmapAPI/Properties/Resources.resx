@@ -154,6 +154,13 @@
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div id="mapContainer"&gt;&lt;/div&gt;
+&lt;div id="tip"&gt;
+    &lt;b&gt;鼠标左键在地图上单击获取坐标&lt;/b&gt;
+    &lt;br&gt;
+
+    &lt;div&gt;X：&lt;input type="text" id="lngX" name="lngX" value=""/&gt;&amp;nbsp;Y：&lt;input type="text" id="latY" name="latY"
+                                                                             value=""/&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;script type="text/javascript"&gt;
     var map;
     //初始化地图对象，加载地图
@@ -163,6 +170,8 @@
 
     //为地图注册click事件获取鼠标点击出的经纬度坐标
     var clickEventListener = map.on( 'click', function(e) {
+        document.getElementById("lngX").value = e.lnglat.getLng();
+        document.getElementById("latY").value = e.lnglat.getLat();
         window.external.SendLocation(e.lnglat.getLng(), e.lnglat.getLat());
     });
 &lt;/script&gt;
