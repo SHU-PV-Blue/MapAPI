@@ -1,6 +1,6 @@
 ﻿namespace MapWeatherData
 {
-	partial class MapFrom
+	partial class MapForm
 	{
 		/// <summary>
 		/// 必需的设计器变量。

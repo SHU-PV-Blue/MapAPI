@@ -32,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SHUPV.Database">
+    <Reference Include="SHUPV.Database, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\SHUPV.Database.dll</HintPath>
     </Reference>
     <Reference Include="SHUPV.Database.Connection">
@@ -53,11 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MapFrom.cs">
+    <Compile Include="MapForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MapFrom.Designer.cs">
-      <DependentUpon>MapFrom.cs</DependentUpon>
+    <Compile Include="MapForm.Designer.cs">
+      <DependentUpon>MapForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,8 +68,8 @@
     <Compile Include="SelectForm.Designer.cs">
       <DependentUpon>SelectForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MapFrom.resx">
-      <DependentUpon>MapFrom.cs</DependentUpon>
+    <EmbeddedResource Include="MapForm.resx">
+      <DependentUpon>MapForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

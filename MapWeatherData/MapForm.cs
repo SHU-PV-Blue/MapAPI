@@ -14,16 +14,16 @@ namespace MapWeatherData
 {
 	[PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
 	[System.Runtime.InteropServices.ComVisibleAttribute(true)]
-	public partial class MapFrom : Form
+	public partial class MapForm : Form
 	{
 
-		public double _lon;		//经度
-		public double _lat;		//纬度
+		public static double _lon;		//经度
+		public static double _lat;		//纬度
 
 		/// <summary>
 		/// 初始界面
 		/// </summary>
-		public MapFrom()
+		public MapForm()
 		{
 			InitializeComponent();
 		}
@@ -56,7 +56,13 @@ namespace MapWeatherData
 
 		private void btnSendCoord_Click(object sender, EventArgs e)
 		{
-
+			this.Hide();
+			SelectForm selectForm = new SelectForm();
+			selectForm.ShowDialog();
+			if (!selectForm._close)
+				this.Show();
+			else
+				this.Close();
 		}
 	}
 }

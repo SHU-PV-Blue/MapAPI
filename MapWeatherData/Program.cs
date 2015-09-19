@@ -16,7 +16,7 @@ namespace MapWeatherData
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new SelectForm());
+			Application.Run(new MapForm());
 		}
 	}
 }
