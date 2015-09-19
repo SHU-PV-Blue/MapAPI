@@ -44,7 +44,9 @@ namespace MapWeatherData
 		/// <param name="e"></param>
 		private void lblPartInfo_Click(object sender, EventArgs e)
 		{
+
 			MessageBox.Show("这一项是选择天气数据类。");
+			
 		}
 
 		/// <summary>
@@ -59,6 +61,11 @@ namespace MapWeatherData
 
 		private void SelectForm_Load(object sender, EventArgs e)
 		{
+			this.ClientSize = new System.Drawing.Size(820, 292);
+			//this.btnSendArgu.Location = new System.Drawing.Point(149, 200);
+			//this.btnSelectCoord.Location = new System.Drawing.Point(349, 200);
+			//this.btnClose.Location = new System.Drawing.Point(535, 200);
+
 			lblLon.Text = "经度：" + MapForm._lon.ToString();
 			lblLat.Text = "纬度：" + MapForm._lat.ToString() ;
 
@@ -81,12 +88,27 @@ namespace MapWeatherData
 			this.Close();
 		}
 
+		private void btnClose_Click(object sender, EventArgs e)
+		{
+			_close = true;
+			this.Close();
+		}
+
 		private void SelectForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			if (_close)
 				_parentForm.Close();
 			else
 				_parentForm.Visible = true;
+		}
+
+		private void btnSendArgu_Click(object sender, EventArgs e)
+		{
+			//设置尺寸
+			this.ClientSize = new System.Drawing.Size(820, 730);
+
+			dgvwLines.DataSource = _weatherData.GetLineData(MapForm._lat,MapForm._lon,cbxSelectPart.Text.ToString(),cbxSelectTable.Text.ToString(),);
+
 		}
 	}
 }

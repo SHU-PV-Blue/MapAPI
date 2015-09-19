@@ -58,6 +58,7 @@ namespace MapWeatherData
 		{
 			this.Hide();
 			SelectForm selectForm = new SelectForm(this);
+			selectForm.StartPosition = FormStartPosition.CenterScreen;
 			selectForm.ShowDialog();
 			//if (!selectForm._close)
 			//	this.Show();

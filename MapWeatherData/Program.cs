@@ -16,7 +16,9 @@ namespace MapWeatherData
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MapForm());
+			MapForm mpf = new MapForm();
+			mpf.StartPosition = FormStartPosition.CenterScreen;
+			Application.Run(mpf);
 		}
 	}
 }
