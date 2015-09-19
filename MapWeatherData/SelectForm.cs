@@ -18,10 +18,15 @@ namespace MapWeatherData
 	
 	public partial class SelectForm : Form
 	{
-		WeatherData weatherData = new WeatherData();
-
+		WeatherData _weatherData = new WeatherData();
+		MapForm _parentForm;
 		public SelectForm()
 		{
+			InitializeComponent();
+		}
+		public SelectForm(MapForm form)
+		{
+			_parentForm = form;
 			InitializeComponent();
 		}
 
@@ -30,7 +35,7 @@ namespace MapWeatherData
 		/// 值为true：关闭所有窗口
 		/// 值为false：调出地图窗口
 		/// </summary>
-		public bool _close;
+		private bool _close = true;
 
 		/// <summary>
 		/// 选择数据类的提示信息
@@ -57,7 +62,7 @@ namespace MapWeatherData
 			lblLon.Text = "经度：" + MapForm._lon.ToString();
 			lblLat.Text = "纬度：" + MapForm._lat.ToString() ;
 
-			List<string> dataPart = weatherData.GetPartNames();
+			List<string> dataPart = _weatherData.GetPartNames();
 			//cbxSelectPart.DataSource = dataPart;
 			cbxSelectPart.Items.AddRange(dataPart.ToArray());
 			cbxSelectPart.Text = dataPart.ToArray().GetValue(1).ToString();
@@ -65,15 +70,23 @@ namespace MapWeatherData
 
 		private void cbxSelectPart_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			List<string> dataTables = weatherData.GetTableNames(cbxSelectPart.Text.ToString());
+			List<string> dataTables = _weatherData.GetTableNames(cbxSelectPart.Text.ToString());
 			cbxSelectTable.Items.AddRange(dataTables.ToArray());
 			cbxSelectTable.Text = dataTables.ToArray().GetValue(1).ToString();
 		}
 
 		private void btnSelectCoord_Click(object sender, EventArgs e)
 		{
-			this.Close();
 			_close = false;
+			this.Close();
+		}
+
+		private void SelectForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (_close)
+				_parentForm.Close();
+			else
+				_parentForm.Visible = true;
 		}
 	}
 }

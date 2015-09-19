@@ -174,6 +174,7 @@
 			this.Name = "SelectForm";
 			this.ShowIcon = false;
 			this.Text = "选择相关数据项";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SelectForm_FormClosing);
 			this.Load += new System.EventHandler(this.SelectForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

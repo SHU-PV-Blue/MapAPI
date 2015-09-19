@@ -57,12 +57,12 @@ namespace MapWeatherData
 		private void btnSendCoord_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			SelectForm selectForm = new SelectForm();
+			SelectForm selectForm = new SelectForm(this);
 			selectForm.ShowDialog();
-			if (!selectForm._close)
-				this.Show();
-			else
-				this.Close();
+			//if (!selectForm._close)
+			//	this.Show();
+			//else
+			//	this.Close();
 		}
 	}
 }
