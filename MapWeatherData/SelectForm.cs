@@ -36,6 +36,9 @@ namespace MapWeatherData
 		/// 值为false：调出地图窗口
 		/// </summary>
 		private bool _close = true;
+		double lat = MapForm._lat;
+		double lon = MapForm._lon;
+		string partname, tablename;
 
 		/// <summary>
 		/// 选择数据类的提示信息
@@ -105,9 +108,18 @@ namespace MapWeatherData
 		private void btnSendArgu_Click(object sender, EventArgs e)
 		{
 			//设置尺寸
-			this.ClientSize = new System.Drawing.Size(820, 730);
-
-			dgvwLines.DataSource = _weatherData.GetLineData(MapForm._lat,MapForm._lon,cbxSelectPart.Text.ToString(),cbxSelectTable.Text.ToString(),);
+			this.ClientSize = new System.Drawing.Size(820, 550);
+			partname = cbxSelectPart.Text.ToString();
+			tablename = cbxSelectTable.Text.ToString();
+			try{
+				dgvwLines.DataSource = _weatherData.GetTableData(lat, lon, partname, tablename);
+				//.GetLineData(MapForm._lat,MapForm._lon,cbxSelectPart.Text.ToString(),cbxSelectTable.Text.ToString(),);
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show("找不到数据，请检查相关索引");
+			}
+			
 
 		}
 	}

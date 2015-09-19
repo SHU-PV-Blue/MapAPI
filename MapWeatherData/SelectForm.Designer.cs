@@ -74,7 +74,7 @@
 			// 
 			this.btnSendArgu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnSendArgu.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.btnSendArgu.Location = new System.Drawing.Point(149, 627);
+			this.btnSendArgu.Location = new System.Drawing.Point(149, 490);
 			this.btnSendArgu.Name = "btnSendArgu";
 			this.btnSendArgu.Size = new System.Drawing.Size(100, 42);
 			this.btnSendArgu.TabIndex = 1;
@@ -156,7 +156,7 @@
 			// 
 			this.btnSelectCoord.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnSelectCoord.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.btnSelectCoord.Location = new System.Drawing.Point(349, 627);
+			this.btnSelectCoord.Location = new System.Drawing.Point(349, 490);
 			this.btnSelectCoord.Name = "btnSelectCoord";
 			this.btnSelectCoord.Size = new System.Drawing.Size(100, 42);
 			this.btnSelectCoord.TabIndex = 1;
@@ -168,7 +168,7 @@
 			// 
 			this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnClose.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-			this.btnClose.Location = new System.Drawing.Point(535, 627);
+			this.btnClose.Location = new System.Drawing.Point(535, 490);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(100, 42);
 			this.btnClose.TabIndex = 1;
@@ -185,14 +185,14 @@
 			this.dgvwLines.Location = new System.Drawing.Point(35, 199);
 			this.dgvwLines.Name = "dgvwLines";
 			this.dgvwLines.RowTemplate.Height = 23;
-			this.dgvwLines.Size = new System.Drawing.Size(732, 401);
+			this.dgvwLines.Size = new System.Drawing.Size(732, 264);
 			this.dgvwLines.TabIndex = 4;
 			// 
 			// SelectForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(804, 692);
+			this.ClientSize = new System.Drawing.Size(804, 555);
 			this.Controls.Add(this.dgvwLines);
 			this.Controls.Add(this.lblTableInfo);
 			this.Controls.Add(this.lblPartInfo);
