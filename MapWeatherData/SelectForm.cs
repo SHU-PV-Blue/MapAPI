@@ -65,6 +65,8 @@ namespace MapWeatherData
 		private void SelectForm_Load(object sender, EventArgs e)
 		{
 			this.ClientSize = new System.Drawing.Size(820, 292);
+
+
 			//this.btnSendArgu.Location = new System.Drawing.Point(149, 200);
 			//this.btnSelectCoord.Location = new System.Drawing.Point(349, 200);
 			//this.btnClose.Location = new System.Drawing.Point(535, 200);
@@ -75,14 +77,37 @@ namespace MapWeatherData
 			List<string> dataPart = _weatherData.GetPartNames();
 			//cbxSelectPart.DataSource = dataPart;
 			cbxSelectPart.Items.AddRange(dataPart.ToArray());
-			cbxSelectPart.Text = dataPart.ToArray().GetValue(1).ToString();
+			cbxSelectPart.Text = dataPart.ToArray().GetValue(0).ToString();
+
+			lblTables.Visible = false;
+			cbxSelectTable.Visible = false;
+			lblTableInfo.Visible = false;
+
+		}
+
+		private void Show_cobxTable()
+		{
+			lblTables.Visible = true;
+			cbxSelectTable.Visible = true;
+			lblTableInfo.Visible = true;
 		}
 
 		private void cbxSelectPart_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			List<string> dataTables = _weatherData.GetTableNames(cbxSelectPart.Text.ToString());
-			cbxSelectTable.Items.AddRange(dataTables.ToArray());
-			cbxSelectTable.Text = dataTables.ToArray().GetValue(1).ToString();
+
+			Show_cobxTable();
+			try
+			{
+				cbxSelectTable.Items.Clear();
+				List<string> dataTables = _weatherData.GetTableNames(cbxSelectPart.Text.ToString());
+				cbxSelectTable.Items.AddRange(dataTables.ToArray());
+				cbxSelectTable.Text = dataTables.ToArray().GetValue(0).ToString();
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show("发生了一个错误，点击继续");
+			}
+			
 		}
 
 		private void btnSelectCoord_Click(object sender, EventArgs e)
@@ -107,6 +132,7 @@ namespace MapWeatherData
 
 		private void btnSendArgu_Click(object sender, EventArgs e)
 		{
+			Show_cobxTable();
 			//设置尺寸
 			this.ClientSize = new System.Drawing.Size(820, 550);
 			partname = cbxSelectPart.Text.ToString();
@@ -121,6 +147,22 @@ namespace MapWeatherData
 			}
 			
 
+		}
+
+		private void cbxSelectPart_KeyPress(object sender, KeyPressEventArgs e)
+		{
+		}
+
+		private void cbxSelectPart_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+				cbxSelectPart_SelectedIndexChanged(sender, e);
+		}
+
+		private void cbxSelectTable_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+				btnSendArgu_Click(sender, e);
 		}
 	}
 }

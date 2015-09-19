@@ -31,8 +31,8 @@
 			this.cbxSelectPart = new System.Windows.Forms.ComboBox();
 			this.cbxSelectTable = new System.Windows.Forms.ComboBox();
 			this.btnSendArgu = new System.Windows.Forms.Button();
-			this.labPart = new System.Windows.Forms.Label();
-			this.labTables = new System.Windows.Forms.Label();
+			this.lblPart = new System.Windows.Forms.Label();
+			this.lblTables = new System.Windows.Forms.Label();
 			this.lblLon = new System.Windows.Forms.Label();
 			this.lblLat = new System.Windows.Forms.Label();
 			this.lblPartInfo = new System.Windows.Forms.Label();
@@ -56,6 +56,8 @@
 			this.cbxSelectPart.Sorted = true;
 			this.cbxSelectPart.TabIndex = 1;
 			this.cbxSelectPart.SelectedIndexChanged += new System.EventHandler(this.cbxSelectPart_SelectedIndexChanged);
+			this.cbxSelectPart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxSelectPart_KeyDown);
+			this.cbxSelectPart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxSelectPart_KeyPress);
 			// 
 			// cbxSelectTable
 			// 
@@ -69,6 +71,7 @@
 			this.cbxSelectTable.Size = new System.Drawing.Size(653, 26);
 			this.cbxSelectTable.Sorted = true;
 			this.cbxSelectTable.TabIndex = 2;
+			this.cbxSelectTable.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxSelectTable_KeyDown);
 			// 
 			// btnSendArgu
 			// 
@@ -77,32 +80,32 @@
 			this.btnSendArgu.Location = new System.Drawing.Point(149, 490);
 			this.btnSendArgu.Name = "btnSendArgu";
 			this.btnSendArgu.Size = new System.Drawing.Size(100, 42);
-			this.btnSendArgu.TabIndex = 1;
+			this.btnSendArgu.TabIndex = 3;
 			this.btnSendArgu.Text = "确定";
 			this.btnSendArgu.UseVisualStyleBackColor = true;
 			this.btnSendArgu.Click += new System.EventHandler(this.btnSendArgu_Click);
 			// 
-			// labPart
+			// lblPart
 			// 
-			this.labPart.AutoSize = true;
-			this.labPart.Font = new System.Drawing.Font("华文宋体", 14.25F, System.Drawing.FontStyle.Bold);
-			this.labPart.Location = new System.Drawing.Point(31, 114);
-			this.labPart.Name = "labPart";
-			this.labPart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.labPart.Size = new System.Drawing.Size(55, 21);
-			this.labPart.TabIndex = 2;
-			this.labPart.Text = "类别:";
+			this.lblPart.AutoSize = true;
+			this.lblPart.Font = new System.Drawing.Font("华文宋体", 14.25F, System.Drawing.FontStyle.Bold);
+			this.lblPart.Location = new System.Drawing.Point(31, 114);
+			this.lblPart.Name = "lblPart";
+			this.lblPart.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.lblPart.Size = new System.Drawing.Size(55, 21);
+			this.lblPart.TabIndex = 2;
+			this.lblPart.Text = "类别:";
 			// 
-			// labTables
+			// lblTables
 			// 
-			this.labTables.AutoSize = true;
-			this.labTables.Font = new System.Drawing.Font("华文宋体", 14.25F, System.Drawing.FontStyle.Bold);
-			this.labTables.Location = new System.Drawing.Point(31, 153);
-			this.labTables.Name = "labTables";
-			this.labTables.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.labTables.Size = new System.Drawing.Size(55, 21);
-			this.labTables.TabIndex = 2;
-			this.labTables.Text = "表项:";
+			this.lblTables.AutoSize = true;
+			this.lblTables.Font = new System.Drawing.Font("华文宋体", 14.25F, System.Drawing.FontStyle.Bold);
+			this.lblTables.Location = new System.Drawing.Point(31, 153);
+			this.lblTables.Name = "lblTables";
+			this.lblTables.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.lblTables.Size = new System.Drawing.Size(55, 21);
+			this.lblTables.TabIndex = 2;
+			this.lblTables.Text = "表项:";
 			// 
 			// lblLon
 			// 
@@ -159,7 +162,7 @@
 			this.btnSelectCoord.Location = new System.Drawing.Point(349, 490);
 			this.btnSelectCoord.Name = "btnSelectCoord";
 			this.btnSelectCoord.Size = new System.Drawing.Size(100, 42);
-			this.btnSelectCoord.TabIndex = 1;
+			this.btnSelectCoord.TabIndex = 4;
 			this.btnSelectCoord.Text = "坐标重选";
 			this.btnSelectCoord.UseVisualStyleBackColor = true;
 			this.btnSelectCoord.Click += new System.EventHandler(this.btnSelectCoord_Click);
@@ -171,7 +174,7 @@
 			this.btnClose.Location = new System.Drawing.Point(535, 490);
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(100, 42);
-			this.btnClose.TabIndex = 1;
+			this.btnClose.TabIndex = 5;
 			this.btnClose.Text = "关闭";
 			this.btnClose.UseVisualStyleBackColor = true;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -181,6 +184,7 @@
 			this.dgvwLines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.dgvwLines.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
 			this.dgvwLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvwLines.Location = new System.Drawing.Point(35, 199);
 			this.dgvwLines.Name = "dgvwLines";
@@ -196,10 +200,10 @@
 			this.Controls.Add(this.dgvwLines);
 			this.Controls.Add(this.lblTableInfo);
 			this.Controls.Add(this.lblPartInfo);
-			this.Controls.Add(this.labTables);
+			this.Controls.Add(this.lblTables);
 			this.Controls.Add(this.lblLat);
 			this.Controls.Add(this.lblLon);
-			this.Controls.Add(this.labPart);
+			this.Controls.Add(this.lblPart);
 			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.btnSelectCoord);
 			this.Controls.Add(this.btnSendArgu);
@@ -222,8 +226,8 @@
 		private System.Windows.Forms.ComboBox cbxSelectPart;
 		private System.Windows.Forms.ComboBox cbxSelectTable;
 		private System.Windows.Forms.Button btnSendArgu;
-		private System.Windows.Forms.Label labPart;
-		private System.Windows.Forms.Label labTables;
+		private System.Windows.Forms.Label lblPart;
+		private System.Windows.Forms.Label lblTables;
 		private System.Windows.Forms.Label lblLon;
 		private System.Windows.Forms.Label lblLat;
 		private System.Windows.Forms.Label lblPartInfo;
