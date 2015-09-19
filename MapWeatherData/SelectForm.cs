@@ -198,7 +198,12 @@ namespace MapWeatherData
 		/// <param name="e"></param>
 		private void btnSendArgu_Click(object sender, EventArgs e)
 		{
-			Show_cobxTable();
+			if (!cbxSelectTable.Visible)
+			{
+				Show_cobxTable();
+				return;
+			}
+				
 			//设置尺寸
 			this.ClientSize = new System.Drawing.Size(820, 550);
 			partname = cbxSelectPart.Text.ToString();
